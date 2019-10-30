@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="THKiemDinh.UPhieuTra"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:THKiemDinh"
+             mc:Ignorable="d" 
+             d:DesignHeight="585" d:DesignWidth="901">
+    <StackPanel>
+        <Grid Width="906" Height="584" Margin="0,0,-5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="225" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Background="DarkOrange" Margin="0,0,0,220" Grid.RowSpan="2">
+                <Label Content="Trả Sách" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" FontStyle="Italic"></Label>
+            </Grid>
+            <GroupBox Header="Thông Tin Phiếu Mượn" BorderBrush="DarkOrange" FontWeight="Bold" Grid.Row="2" FontSize="16" Width="857" Height="226" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="39,11,10,10" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="155" />
+                            <ColumnDefinition Width="220" />
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="205" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="68" />
+                            <RowDefinition Height="52" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="53*"/>
+                            <RowDefinition Height="11*"/>
+                        </Grid.RowDefinitions>
+                        <Image Source=".\Image\Customer_Male_Dark.png" Grid.RowSpan="4" Margin="0,0,0,50"></Image>
+                        <Label Content="Tình trạng sách Trả" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+                        <ComboBox Name="cb_tinhtrangsachtra" Grid.Row="0" Grid.Column="2" Height="30" SelectedValue="{Binding ElementName=datagrid_listsachmuon,Path=SelectedItem.SACH.TINHTRANG.id_tinhtrang,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        <Button Grid.Row="0" Name="btn_huyListPhieu" Grid.Column="4" Click="Btn_huyListPhieu_Click" FontWeight="Bold" Background="DarkOrange" Height="30" Margin="67,19,74,19">
+                            Hủy
+                        </Button>
+
+                        <DataGrid FontWeight="Bold" SelectedCellsChanged="Datagrid_listsachmuon_SelectedCellsChanged" Name="datagrid_listsachmuon" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="4" Grid.Row="1" Margin="0,0,0,10">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Tên Khách Hàng" Width="150" Binding="{Binding PHIEUMUONSACH.THETHANHVIEN.tenkh}"/>
+                                <DataGridTextColumn Header="Tên Sách" Width="275" Binding="{Binding SACH.tensach}"/>
+                                <DataGridTextColumn Header="Tình Trạng" Width="145" Binding="{Binding SACH.TINHTRANG.tentinhtrang}"/>
+                                <DataGridTextColumn Header="Giá" Width="125" Binding="{Binding SACH.giagoc}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button Name="btn_tratungcuon" Grid.Row="0" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" Background="DarkOrange" Height="30" Content="Trả sách" Click="Btn_tratungcuon_Click"/>
+
+
+
+
+                    </Grid>
+                </StackPanel>
+
+
+
+            </GroupBox>
+            <Button Name="butThem_P" FontWeight="Bold" Click="ButThem_P_Click" Background="DarkOrange" Grid.Row="4" FontSize="16" Width="145" Height="35" Grid.Column="2" Margin="71,1,10,0" >
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45"></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\add.png" Grid.Column="0" Width="59" Height="70" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="-14,-20,0,-19"/>
+                        <TextBlock Text="Trả Hết" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="31,0,6,4"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+
+            <Button Name="btn_HuyChon" FontWeight="Bold" Background="DarkOrange" Grid.Row="4" Grid.Column="3" FontSize="16" Width="145" Height="35" Margin="19,0,63,1" Click="Btn_HuyChon_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\Exit.png" Grid.Column="0" Width="26" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-22,0,26,0" Grid.RowSpan="4"/>
+                        <TextBlock Text="Hủy Chọn" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,1,-13,0" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <GroupBox Header="Danh Sách Phiếu Mượn" BorderBrush="DarkOrange" FontWeight="Bold" Grid.Row="1" Grid.ColumnSpan="4" FontSize="16" Margin="40,81,10,35" Grid.RowSpan="2">
+                <DataGrid FontWeight="Bold" Name="datagrid_listphieutra" AutoGenerateColumns="False" CanUserAddRows="False" Margin="-1,28,10,8">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã Phiếu Mượn" Width="175" Binding="{Binding id_phieumuonsach}"/>
+                        <DataGridTextColumn Header="Tên Khách Hàng" Width="150" Binding="{Binding THETHANHVIEN.tenkh}"/>
+                        <DataGridTextColumn Header="Nhân Viên" Width="150" Binding="{Binding NHANVIEN.tennv}"/>
+                        <DataGridTextColumn Header="Ngày Mượn" Width="125" Binding="{Binding ngaymuon}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="btn_chonpm" Click="Btn_chonpm_Click">Chọn</Button>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <Grid Grid.Row="1" Background="DarkOrange" Margin="0,0,0,175" Grid.ColumnSpan="4">
+                <Image Source=".\Image\search.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="30,0,0,0"></Image>
+            </Grid>
+            <Label Content="Tra Cứu Phiếu Mượn" Grid.Column="0" Grid.Row="1" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,187"/>
+            <TextBox Name="txtTraCuu_PT" FontWeight="Bold" FontSize="16" Grid.Row="1" KeyUp="TxtTraCuu_PT_KeyUp" Width="400" Height="25" Margin="26,10,27,190" Grid.ColumnSpan="2" Grid.Column="1" />
+            <Label Name="lb_tienden" Content="Tổng tiền đền:" FontSize="30" HorizontalAlignment="Center" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Bottom"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

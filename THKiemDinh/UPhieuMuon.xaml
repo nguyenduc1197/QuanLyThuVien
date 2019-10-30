@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="THKiemDinh.UPhieuMuon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:THKiemDinh"
+             mc:Ignorable="d" 
+             d:DesignHeight="585" d:DesignWidth="901">
+    <StackPanel Width="905">
+        <Grid Height="Auto" Width="Auto" RenderTransformOrigin="0.498,0.495">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="225" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Background="DarkOrange" Margin="0,0,9,220" Grid.RowSpan="2">
+                <Label Content="PHIẾU MƯỢN SÁCH" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" FontStyle="Italic"></Label>
+            </Grid>
+            <GroupBox Header="Thông Tin Phiếu Mượn" BorderBrush="DarkOrange" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" FontSize="17" Width="866" Height="250" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="35,0,4,20" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+                <GroupBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.061"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.499"/>
+                    </TransformGroup>
+                </GroupBox.RenderTransform>
+                <StackPanel Orientation="Horizontal" Margin="0,0,83,0">
+                    <Grid Margin="0,3,0,0" Width="830">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15" />
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="206" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="249" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45" />
+                            <RowDefinition Height="45" />
+                            <RowDefinition Height="45" />
+                            <RowDefinition Height="45" />
+                            <RowDefinition Height="45" />
+                        </Grid.RowDefinitions>
+                        <Image Source=".\Image\intel.png" Grid.RowSpan="3" Height="125" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+                        <Label Content="Người Mượn:" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Height="29" Margin="5,10,5,6" Width="120" Grid.Column="2"/>
+                        <Label Content="Tên Sách:" Grid.Column="1" Grid.RowSpan="2" Grid.Row="3" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Height="29" Margin="19,8,9,8" Width="72"/>
+                        <Label Content="Tên NV:" Grid.Column="2" Grid.Row="1" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Height="29" Margin="5,6,65,10" Width="60"/>
+                        <Label Content="Ngày Trả:" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" Height="29" Width="90" RenderTransformOrigin="0.441,0.652"/>
+                        <ComboBox x:Name="cb_thethanhvien" Grid.Column="3" Text="{Binding SelectedItem.TenLK, ElementName=dgrPM, Mode=OneWay}" Margin="10,10,9,10"/>
+                        <ComboBox x:Name="cb_sach" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center"  Text="{Binding SelectedItem.DonGia, ElementName=dgrPM, Mode=OneWay}" Margin="10,10,19,10"/>
+                        <DatePicker x:Name="dp_ngaytra" Grid.Column="5" Grid.Row="0" Text="{Binding SelectedItem.NgSX, ElementName=dgrLK, Mode=OneWay}" Margin="13,8,92,10"/>
+                        <ComboBox x:Name="cb_nv" Grid.Column="3" Grid.Row="1" Width="190" Height="25" HorizontalAlignment="Right"  VerticalAlignment="Center" Text="{Binding SelectedItem.LoaiTB, ElementName=dgrLK, Mode=OneWay}" Margin="0,10,6,10"/>
+                        <Label Content="Số Lượng" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" VerticalAlignment="Center"/>
+                        <TextBox Name="txt_SoLuong" Grid.Row="3"
+                                 VerticalAlignment="Center" Width="70" HorizontalAlignment="Left"
+                                 Grid.RowSpan="2" Grid.Column="5"/>
+                        <GroupBox Header="Chọn Sách Cho Mượn" Grid.Row="3" Grid.Column="1" BorderBrush="DarkOrange" FontWeight="Bold" Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="0,0,55,0">
+
+
+
+
+
+                        </GroupBox>
+
+
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+            <Button Name="butThemSach" FontWeight="Bold" Background="DarkOrange" Grid.Row="1" FontSize="16" Height="35" Margin="36,190,105,0" Click="ButThemSach_Click" Grid.Column="3" >
+                <StackPanel Orientation="Horizontal">
+                    <Grid Width="85">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45"></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\add.png" Grid.Column="0" Width="54" Height="72" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="-9,-22,0,-19"/>
+                        <TextBlock Text="Thêm" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="34,5,30,10" Width="51" Grid.ColumnSpan="2" RenderTransformOrigin="0.549,1.102"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+
+            <Button Name="btn_Luu" FontWeight="Bold" Background="DarkOrange" Grid.Row="4" Grid.Column="2" FontSize="16" Margin="45,0,60,0" Click="Btn_Luu_Click"  >
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\update.png" Grid.Column="0" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Lưu" FontSize="20" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,3"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Name="btn_Huy" FontWeight="Bold" Background="DarkOrange" Grid.Row="4" Grid.Column="2" FontSize="16" Margin="182,0,161,0" Grid.ColumnSpan="2" Click="Btn_Huy_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22*"/>
+                            <RowDefinition Height="0*"/>
+                            <RowDefinition Height="9*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition Width="55"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\delete.png" Grid.Column="0" Width="26" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2,0,2,1" Grid.RowSpan="3"/>
+                        <TextBlock Text="Hủy" FontSize="20" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,2,-10,2" Width="55" Grid.RowSpan="3"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <GroupBox Header="Danh Sách Sách Mượn" BorderBrush="DarkOrange" FontWeight="Bold" Grid.Row="3" Grid.ColumnSpan="4" FontSize="16" Margin="1,20,20,5">
+                <DataGrid Name="datagrid_listsachmuon" CanUserAddRows="False" AutoGenerateColumns="False" Margin="15,5,0,0" Width="845">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Tên Khách hàng" Binding="{Binding PHIEUMUONSACH.THETHANHVIEN.tenkh}"  Width="200" />
+                        <DataGridTextColumn Header="Tên Sách" Width="200" Binding="{Binding SACH.tensach}" />
+                        <DataGridTextColumn Header="Loại Sách" Binding="{Binding SACH.LOAISACH.tenloaisach}" Width="130"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Tình Trạng" Binding="{Binding SACH.TINHTRANG.tentinhtrang}" Width="110"/>
+                        <DataGridTextColumn Header="Giá" Width="120" Binding="{Binding SACH.giagoc}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Số Lượng" Width="50" Binding="{Binding soluong}"></DataGridTextColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="btn_xoarow" Click="Btn_xoarow_Click">Xóa</Button>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+
+        </Grid>
+    </StackPanel>
+</UserControl>

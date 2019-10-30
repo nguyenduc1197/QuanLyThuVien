@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="THKiemDinh.UBaoCaoSachTra"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:THKiemDinh"
+             mc:Ignorable="d" 
+             d:DesignHeight="585" d:DesignWidth="901">
+    <StackPanel Orientation="Vertical">
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Background="DarkOrange" Grid.RowSpan="2">
+            <Label Content="BÁO CÁO THEO SÁCH TRẢ" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" FontStyle="Italic"></Label>
+        </Grid>
+        <StackPanel Orientation="Horizontal">
+            <GroupBox Header="Báo Cáo Theo Sách Trả" BorderBrush="DarkOrange" FontWeight="Bold" FontSize="16" Width="635" Height="195" HorizontalAlignment="Left" Margin="30, 0, 0, 0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source=".\Image\BaoCaoSachTra.png" Width="165" HorizontalAlignment="Left"/>
+                    <WrapPanel VerticalAlignment="Center" Margin="0, 0, 0, 20">
+                        <Label Content="Sách Trả:" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center" Width="120" Margin="40, 20, 0, 0"/>
+                        <TextBox Name="dtpTuNgay_BCN" Text="{Binding SelectedItem.NgSX, ElementName=dgrLK, Mode=OneWay}" Margin="8, 20, 0, 0" Width="200"/>
+                    </WrapPanel>
+                </StackPanel>
+            </GroupBox>
+            <Button Name="butLoc_BCN" FontWeight="Bold" Background="DarkOrange" FontSize="16" Height="35" Width="112" Margin="60, 0, 0, 0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source=".\Image\add.png" Width="59" Height="70" VerticalAlignment="Center"/>
+                    <TextBlock Text="Lọc" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,16,4"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <GroupBox Header="BÁO CÁO THEO SÁCH TRẢ" BorderBrush="DarkOrange" FontWeight="Bold" FontSize="16" Width="835" Height="190" Margin="0, 40, 0, 0">
+            <DataGrid FontWeight="Bold" Name="dgrBCN" AutoGenerateColumns="False" CanUserAddRows="False" >
+                <DataGrid.Columns>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

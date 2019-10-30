@@ -1,0 +1,137 @@
+﻿<Window x:Class="THKiemDinh.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:THKiemDinh"
+        mc:Ignorable="d"
+        Title="Quản Lý Thư Viện" Height="603" Width="1099" Background="LightYellow">
+    <StackPanel Margin="0,0,12,0">
+        <Grid Margin="0,0,21,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="185"></ColumnDefinition>
+                <ColumnDefinition Width="392*"></ColumnDefinition>
+                <ColumnDefinition Width="253*"/>
+                <ColumnDefinition Width="202*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="75"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="75"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="75"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="75"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Name="btn_HomePage" Background="DarkOrange" FontWeight="Bold" Foreground="Black" Focusable="false"  Margin="0,0,1,5">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\home.png" Grid.Column="0" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="TRANG CHỦ" FontSize="16" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="1" Name="btn_PhieuMuon" Background="DarkOrange" FontWeight="Bold" Foreground="Black" Focusable="false"  Margin="0,20,1,5" Click="Btn_PhieuMuon_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="7*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\maytinh.png" Grid.Column="0" Width="26" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2,0" Grid.RowSpan="2"/>
+                        <TextBlock Text="PHIẾU MƯỢN" FontSize="16" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,3" Grid.RowSpan="2"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="2" Name="btn_PhieuTra" Background="DarkOrange" FontWeight="Bold" VerticalAlignment="Center"  Foreground="Black" Focusable="false" Height="54" Margin="0,15,0,56" Grid.RowSpan="2" Click="Btn_PhieuTra_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\ncc.png" Grid.Column="0" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="PHIẾU TRẢ" FontSize="16" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="3" Name="btn_TimKiem" Background="DarkOrange" FontWeight="Bold" Foreground="Black" Focusable="false"  Margin="0,45,0,30" Grid.RowSpan="2" Click="Btn_TimKiem_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\bill.png" Grid.Column="0" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="TÌM KIẾM" FontSize="14" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="8" Name="btnThoat" Background="DarkOrange" FontWeight="Bold"  Foreground="Black"  Focusable="false"  Margin="0,5,0,0" HorizontalAlignment="Left" Width="184" Click="BtnThoat_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\Exit.png" Grid.Column="0" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="THOÁT" FontSize="16" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="4" Name="btn_BaoCaoNgay" Background="DarkOrange" FontWeight="Bold"  Foreground="Black"  Focusable="false"  Margin="0,45,0,35" Grid.RowSpan="2" HorizontalAlignment="Left" Width="184" Click="Btn_BaoCaoNgay_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\Exit.png" Grid.Column="0" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Báo Cáo Ngày" FontSize="16" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="5" Name="btn_BaoCaoMuonTra" Background="DarkOrange" FontWeight="Bold"  Foreground="Black"  Focusable="false"  Margin="0,65,0,15" Grid.RowSpan="2" Click="Btn_BaoCaoMuonTra_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\Exit.png" Grid.Column="0" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Báo Cáo Mượn Trả" FontSize="16" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="7" Name="btn_BaoCaoSach" Background="DarkOrange" FontWeight="Bold"  Foreground="Black"  Focusable="false" Margin="0,15" Click="Btn_BaoCaoSach_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=".\Image\Exit.png" Grid.Column="0" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Báo Cáo Sách" FontSize="16" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+            </Button>
+            <Grid Name="MainGrid"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="9" Margin="0,0,-32,0">
+   
+
+
+            </Grid>
+
+        </Grid>
+        <Label x:Name="temp" Content="Label" Height="42" Margin="0,0,803,0"/>
+    </StackPanel>
+</Window>
